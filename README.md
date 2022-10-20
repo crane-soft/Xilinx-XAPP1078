@@ -25,7 +25,9 @@ This script does the following:
 * Validate and save the IPI design.
 * Create the top level HDL wrapper and add it to the project. (Same as navigating to 'Project Manager', right clicking on design_1.bd, and selecting 'Create HDL Wrapper')
 
-When the script has finished, build the design by clicking 'Generate Bitstream' in the lower left conrner.  
+After script has finished you may open check the block design. It should look like this:<br>
+![Block Design](../docs/BlockDesign_design_1.png)<br>
+No build the design by clicking 'Generate Bitstream' in the lower left conrner.  
 Then go to the filemenu and export the hardware:  
  `File/Export/Export Hardware`  
 Finally lauch the SDK:  
