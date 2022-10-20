@@ -8,7 +8,8 @@ create_project -force $proj_name ./$proj_name
 set obj [get_projects $proj_name]
 set_property "part" "xc7z020clg484-1" $obj
 set_property "target_language" "Verilog" $obj
-set_property board_part xilinx.com:zc702:part0:1.0 $obj
+# borrar -- set_property board_part em.avnet.com:zed:part0:1.0 $obj
+set_property board_part xilinx.com:zc702:part0:1.0  $obj
 
 # Set the directory path for the new project
 set proj_dir [get_property directory $obj]
@@ -25,11 +26,11 @@ save_bd_design
 make_wrapper -files [get_files $proj_dir/$proj_name.srcs/sources_1/bd/design_1/design_1.bd] -top
 import_files -force -norecurse $proj_dir/$proj_name.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
 
-#implement the design and create bit file
-launch_runs impl_1 -to_step write_bitstream
-wait_on_run -timeout 60 impl_1
+# uncommend the next 2 lines to implement the design and create bit file
+#launch_runs impl_1 -to_step write_bitstream
+#wait_on_run -timeout 60 impl_1
 
-#Export design to SDK
-file mkdir $proj_dir/$proj_name.sdk
-file copy -force $proj_dir/$proj_name.runs/impl_1/design_1_wrapper.sysdef $proj_dir/$proj_name.sdk/design_1_wrapper.hdf
-launch_sdk -workspace $proj_dir/$proj_name.sdk -hwspec $proj_dir/$proj_name.sdk/design_1_wrapper.hdf
+# uncommend the next 3 lines to export the design to SDK and launch the SDK
+#file mkdir $proj_dir/$proj_name.sdk
+#file copy -force $proj_dir/$proj_name.runs/impl_1/design_1_wrapper.sysdef $proj_dir/$proj_name.sdk/design_1_wrapper.hdf
+#launch_sdk -workspace $proj_dir/$proj_name.sdk -hwspec $proj_dir/$proj_name.sdk/design_1_wrapper.hdf

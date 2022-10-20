@@ -15,21 +15,8 @@
  * AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  */
-
-/*
- * helloworld.c: simple test application
- */
-
-/***************************** Include Files *********************************/
 #include "xparameters.h"
-//#include <stdio.h>
-//#include "xil_io.h"
-//#include "xil_mmu.h"
-//#include "xil_cache.h"
-//#include "xil_printf.h"
-//#include "xil_exception.h"
-//#include "xscugic.h"
-//#include "xpseudo_asm.h"
+
 #include "app_cpu1.h"
 #include "my_utils.h"
 
@@ -39,13 +26,6 @@
 #include "sleep.h"
 #endif
 
-/**************************** Type Definitions *******************************/
-
-/************************** Constant Definitions *****************************/
-
-/**************************** Type Definitions *******************************/
-
-/***************** Macros (Inline Functions) Definitions *********************/
 
 /************************** Function Prototypes ******************************/
 static int  SetupIntrSystem(INTC *IntcInstancePtr, XPlIrq *PeriphInstancePtr, u16 IntrId);
@@ -61,20 +41,6 @@ static void PlIntrHandler(void *CallBackRef);
 INTC   IntcInstancePtr;
 XPlIrq PlIrqInstancePtr;
 
-
-
-/*****************************************************************************/
-/**
-*
-* Main
-*
-* @param	None.
-*
-* @return	None.
-*
-* @note		None.
-*
-******************************************************************************/
 int main()
 {
 	int Status;
@@ -109,6 +75,8 @@ int main()
 #ifdef USE_SCU_TIMER
 	ScuTimerInit();
 #endif
+
+  xil_printf("CPU1 has started\n");
 
 	// 1sec tick heartbeat visible from linux
   while(1) {
