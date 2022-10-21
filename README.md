@@ -34,7 +34,7 @@ Finally lauch the SDK:
  `File/Lauch SDK`  
 
 ### Create the Application that will run on CPU1
-* Select File->New->Application_Project<br>
+* In the SDK select File->New->Application_Project<br>
   Enter the project name `app_cpu1`<br>
   Change Processor to ps7_cortexa9_1<br>
   Leave 'Board Support Package' to 'Create New' 'app_cpu1_bsp' and select Next
